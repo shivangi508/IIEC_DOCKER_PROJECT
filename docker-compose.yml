@@ -1,0 +1,56 @@
+version: '3'
+services:
+       mariadb:
+           image: mariadb:10.5
+           restart: always
+           volumes:
+                 - mariadb_storage_new:/var/lib/mysql
+                 
+           environment:
+                  MARIADB_HOST: mariabdb
+                  MARIADB_ROOT_PASSWORD: happy
+                  MARIADB_PORT_NUMBER: 3306
+                  MYSQL_CLIENT_CREATE_DATABASE_NAME: mydatabase
+                  MYSQL_CLIENT_CREATE_DATABASE_USER: shivangi
+        
+        
+       wordpress:
+           image: wordpress:5.1.1-php7.3-apache
+           restart: always
+           volumes:
+                 - wordpress_storage_new2:/var/www/html
+           depends_on: mariadb
+           ports: 
+                 - 8080:80
+         
+         
+       drupal:
+          image: drupal:latest
+          restart: always
+          volumes:
+                 - drupal_storage_new:/var/www/html
+          depends_on:
+                 - mariadb
+          ports: 
+                 - 8082:80
+                 
+                 
+       owncloud:
+          image: owncloud:10.0-apache
+          volumes:
+                 - owncloud_storage_new:/var/ww/html
+          restart: always
+          depends_on:
+                 - mariadb
+          ports:
+                 - 8083:80 
+   
+volumes:
+    mariadb_storage_new:
+    wordpress_storage_new2:
+    drupal_storage_new:
+    owncloud_storage_new:
+    
+    
+    
+                 
