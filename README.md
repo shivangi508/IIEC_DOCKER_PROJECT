@@ -8,8 +8,8 @@ The project is composed by using ".yml or .yaml" file. It uses PAT(Port Address 
 	Wordpress plugin architecture allows users to extend the features and fuctionality of a website or a blog.
 	Drupal is a free and open-source web content management framework written in PHP .With drupal we can have site admins , content editors , individualized access to private content and more.
 # versions used- 
-# owncloud:10.0-apache
-# MariaDB:10.5
-# Wordpress:5.1.1-php7.3-apache
-# Drupal:latest
-# Docker-compose:3
+- owncloud:10.0-apache
+- MariaDB:10.5
+- Wordpress:5.1.1-php7.3-apache
+- Drupal:latest
+- Docker-compose:3
